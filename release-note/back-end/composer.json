@@ -1,0 +1,41 @@
+{
+    "name": "abarthelemycode/release-note",
+    "description": "Release note app",
+    "require": {
+        "php": "<=5.6.4",
+        "illuminate/database": "5.4.36",
+        "monolog/monolog": "^1.17",
+        "phpmailer/phpmailer": "^6.0",
+        "slim/php-view": "^2.0",
+        "slim/slim": "^3.1",
+        "zenstruck/jwt": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=5.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Middlewares\\": "app/middlewares",
+            "App\\Controllers\\": "app/controllers",
+            "App\\Services\\": "app/services",
+            "App\\Repositories\\": "app/repositories",
+            "App\\Models\\": "app/models"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "5.6.4"
+        },
+        "process-timeout": 0,
+        "sort-packages": true
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t public",
+        "test": "phpunit"
+    }
+}

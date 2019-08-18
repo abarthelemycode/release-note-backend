@@ -1,0 +1,29 @@
+version: "3.2"
+services:
+  apache:
+    build:
+      context: './apache/'
+      args:
+       APACHE_VERSION: ${APACHE_VERSION}
+    depends_on:
+      - php
+    ports:
+      - "8080:80"
+    volumes:
+      - ${PROJECT_ROOT}/:/var/www/html
+    container_name: apache
+  php:
+    build: 
+      context: './php/'
+      args:
+       PHP_VERSION: ${PHP_VERSION}
+    volumes:
+      - ${BACKEND_ROOT}/:/var/www/html/back-end
+      - ${FRONTEND_ROOT}/:/var/www/html/front-end
+    container_name: php
+  php-composer:
+    image: composer:latest
+    volumes:
+      - ${BACKEND_ROOT}/:/app
+    command: 'true'
+    container_name: php-composer
