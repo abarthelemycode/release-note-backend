@@ -1,6 +1,6 @@
 # Release-note app
 
-## requirerements
+## requirements
 	Docker 
 	docker-compose
 
